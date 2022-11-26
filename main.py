@@ -34,6 +34,7 @@ if floor == "2":
     customer_select = Rooms(select_room, floor)
     boolean = customer_select.check()
     while not boolean:
+        # check boolean
         select_room = input("What room do you want?: ")
         customer_select = Rooms(select_room, floor)
         boolean = customer_select.check()
