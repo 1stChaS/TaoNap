@@ -1,66 +1,75 @@
+import csv
 from Rooms import Rooms
+import Dessert
 
 # better version change to def
-select = input("Do you want to book a room? (Yes/No): ")
-while select != "Yes":
-    if select == "No":
-        # Screen → show a cute turtle swimming for 2 times and ask again
-        pass
-    if select == "Yes":
-        # Screen → show a room number of two floor
-        pass
-    else:
-        print("please choose again. 🥹")
-    select = input("Do you want to book a room? (Yes/No): ")
-
-floor = input("What floor do you want to book? (1/2): ")
-while floor != "1" and floor != "2":
-    print(type(floor))
-    print("Sorry, but we have only 2 floors.")
-    floor = input("What floor do you want to book? (1/2): ")
-if floor == "1":
-    # Screen → show a room of floor 1
-    select_room = input("What room do you want?: ")
-    customer_select = Rooms(select_room, floor)
-    boolean = customer_select.check()
-    while not boolean:
-        select_room = input("What room do you want?: ")
-        customer_select = Rooms(select_room, floor)
-        boolean = customer_select.check()
-
-if floor == "2":
-    # Screen → show a room of floor 2
-    select_room = input("What room do you want?: ")
-    customer_select = Rooms(select_room, floor)
-    boolean = customer_select.check()
-    while not boolean:
-        # check boolean
-        select_room = input("What room do you want?: ")
-        customer_select = Rooms(select_room, floor)
-        boolean = customer_select.check()
-
-hours = int(input("How long do you want to book?(hour(s)): "))
-if isinstance(hours, int):
-    customer_select = Rooms(select_room, floor)
-    price = customer_select.price()*hours
-    print(price)
-
-else:
-    raise ValueError("Hour(s) should be numeric.")
+# choice_room = input("Do you want to book a room? (Yes/No): ")
+# while choice_room != "Yes":
+#     if choice_room == "No":
+#         # Screen → show a cute turtle swimming for 2 times and ask again
+#         pass
+#     if choice_room == "Yes":
+#         # Screen → show a room number of two floor
+#         pass
+#     else:
+#         print("please choose again. 🥹")
+#     choice_room = input("Do you want to book a room? (Yes/No): ")
+#
+# floor = input("What floor do you want to book? (1/2): ")
+# while floor != "1" and floor != "2":
+#     print(type(floor))
+#     print("Sorry, but we have only 2 floors.")
+#     floor = input("What floor do you want to book? (1/2): ")
+# if floor == "1":
+#     # Screen → show a room of floor 1
+#     select_room = input("What room do you want?: ")
+#     customer_select = Rooms(select_room, floor)
+#     boolean = customer_select.check()
+#     while not boolean:
+#         select_room = input("What room do you want?: ")
+#         customer_select = Rooms(select_room, floor)
+#         boolean = customer_select.check()
+#
+# if floor == "2":
+#     # Screen → show a room of floor 2
+#     select_room = input("What room do you want?: ")
+#     customer_select = Rooms(select_room, floor)
+#     boolean = customer_select.check()
+#     while not boolean:
+#         # check boolean
+#         select_room = input("What room do you want?: ")
+#         customer_select = Rooms(select_room, floor)
+#         boolean = customer_select.check()
+#
+# hours = int(input("How long do you want to book?(hour(s)): "))
+# if isinstance(hours, int):
+#     customer_select = Rooms(select_room, floor)
+#     price = customer_select.price()*hours
+#     print(price)
+#
+# else:
+#     raise ValueError("Hour(s) should be numeric.")
 
 # Dessert
 
-analog_choice_dessert = input("Do you want any dessert?(Yes/No): ")
-if analog_choice_dessert == "No":
+choice_dessert = input("Do you want any dessert?(Yes/No): ")
+if choice_dessert == "No":
     pass
-if analog_choice_dessert == "Yes":
-    while analog_choice_dessert == "Yes":
-        # Screen → The menu of desserts
-        select_dessert = input("Which one do you want to order?(1-10): ")
-        # go to search function in dessert.py
-        order = input("How many orders do you want?: ")
-        print(f"Great choice, You order 'two' 'Strawberry shortcakes'.")
-        analog_choice_dessert = input("Do you want more dessert(Yes/No): ")
+if choice_dessert == "Yes":
+    with open("Dessert.csv", "r") as file:
+        dessert_list = csv.DictReader(file)
+        print("-------------------------------------------")
+        print(f"{'Dessert':^42}")
+        print("-------------------------------------------")
+        for i in dessert_list:
+            print(f"{i['list']:^3}| {i['menu']:<26} {i['price']:>8}.-")
+        print("-------------------------------------------")
+    # Screen → The menu of desserts
+    select_dessert = input("Which one do you want to order?(1-10): ")
+    # go to search function in dessert.py
+    order = input("How many orders do you want?: ")
+    print(f"Great choice, You order 'two' 'Strawberry shortcakes'.")
+    choice_dessert = input("Do you want more dessert(Yes/No): ")
 
 analog_choice_book = input("Do you want any interesting books?(Yes/No): ")
 if analog_choice_book == "No":
