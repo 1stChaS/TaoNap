@@ -1,6 +1,6 @@
 import csv
 from Rooms import Rooms
-import Dessert
+from Dessert import Dessert
 
 # better version change to def
 # choice_room = input("Do you want to book a room? (Yes/No): ")
@@ -44,6 +44,7 @@ import Dessert
 # hours = int(input("How long do you want to book?(hour(s)): "))
 # if isinstance(hours, int):
 #     customer_select = Rooms(select_room, floor)
+#     # don't show this just check
 #     price = customer_select.price()*hours
 #     print(price)
 #
@@ -56,20 +57,31 @@ choice_dessert = input("Do you want any dessert?(Yes/No): ")
 if choice_dessert == "No":
     pass
 if choice_dessert == "Yes":
-    with open("Dessert.csv", "r") as file:
-        dessert_list = csv.DictReader(file)
-        print("-------------------------------------------")
-        print(f"{'Dessert':^42}")
-        print("-------------------------------------------")
-        for i in dessert_list:
-            print(f"{i['list']:^3}| {i['menu']:<26} {i['price']:>8}.-")
-        print("-------------------------------------------")
-    # Screen → The menu of desserts
-    select_dessert = input("Which one do you want to order?(1-10): ")
-    # go to search function in dessert.py
-    order = input("How many orders do you want?: ")
-    print(f"Great choice, You order 'two' 'Strawberry shortcakes'.")
-    choice_dessert = input("Do you want more dessert(Yes/No): ")
+    while choice_dessert == "Yes":
+        # Screen → The menu of desserts
+        with open("Dessert.csv", "r") as file:
+            dessert_list = csv.DictReader(file)
+            print("-------------------------------------------")
+            print(f"{'Dessert':^42}")
+            print("-------------------------------------------")
+            for i in dessert_list:
+                print(f"{i['list']:^3}| {i['menu']:<26} {i['price']:>8}.-")
+            print("-------------------------------------------")
+        select_dessert = input("Which one do you want to order?(1-10): ")
+        dessert = Dessert(select_dessert)
+        check = dessert.check()
+        # go to search function in dessert.py
+        while not check:
+            select_dessert = input("Which one do you want to order?(1-10): ")
+            dessert = Dessert(select_dessert)
+            check = dessert.check()
+        order = int(input("How many orders do you want?: "))
+        print(f"Great choice, You order {order} {check}.")
+        # don't show this just check
+        price = dessert.price()
+        print(price)
+        print(price * order)
+        choice_dessert = input("Do you want more dessert(Yes/No): ")
 
 analog_choice_book = input("Do you want any interesting books?(Yes/No): ")
 if analog_choice_book == "No":
