@@ -1,18 +1,19 @@
-import json
-
-
 class Customer:
-    def __init__(self, customer_name, customer_nickname, customer_phone, book):
-        if not customer_name.isalpha():
+    def __init__(self, customer_name, customer_nickname, customer_phone, room_info, dessert_info, book):
+        if not isinstance(customer_name, str):  # name with surname ex. Chananthida Sopaphol
             raise TypeError("Your name should be string.")
         if not customer_nickname.isalpha():
             raise ValueError("Your nickname should be string.")
         if not customer_phone.isnumeric():
             raise ValueError("Your phone number should be numeric.")
-        self.__customer_name = customer_name  # name with surname ex. Chananthida Sopaphol
+        if len(customer_phone) != 10:
+            raise ValueError("Your phone number should have 10 digits.")
+        self.__customer_name = customer_name
         self.__customer_nickname = customer_nickname
         self.__customer_phone = customer_phone
-        self.__book = book
+        self.__room_info = room_info
+        self.dessert_info = dessert_info
+        self.book = book
 
     @property
     def customer_name(self):
@@ -42,72 +43,75 @@ class Customer:
     def customer_phone(self, new_phone):
         if not new_phone.isnumeric():
             raise ValueError("Your phone number should be numeric.")
-        elif len(new_phone) != 10:
+        if len(new_phone) != 10:
             raise ValueError("Your phone number should have 10 digits.")
         self.__customer_phone = new_phone
 
     @property
+    def room_info(self):
+        return self.__room_info
+
+    @room_info.setter
+    def room_info(self, new_room):
+        self.__room_info = new_room
+
+    @property
+    def dessert_info(self):
+        return self.dessert_info
+
+    @dessert_info.setter
+    def dessert_info(self, new_dessert):
+        self.dessert_info = new_dessert
+
+    @property
     def book(self):
-        return self.__book
+        return self.book
 
     @book.setter
     def book(self, new_book):
-        self.__book = new_book
+        self.book = new_book
 
-    def search(self, Customer_name):
-        try:
-            with open("Customers_info.json", "r") as data_file:
-                data = json.load(data_file)
-        except FileNotFoundError:
-            print(f"No data for account number: {Customer_name}")
-        else:
-            if Customer_name in data:
-                print(f"Name={data[Customer_name]['name']},"
-                      f" Balance={data[Customer_name]['balance']}")
-                # If data exist, it will print out.
-            else:
-                print(f"No data for account number: {Customer_name}")
-                # If data is no longer exist.
+    def print_bill(self):
+        print("")
+        print("")
+        print("")
+        print("=====================================================================================================")
+        print("")
+        print(f"{'TAONAP':^100}")
+        print(f"{'-- No day is so bad it can’t be fixed with a nap --':^100}")
+        print("")
+        print("-----------------------------------------------------------------------------------------------------")
+        print(f"{'  Menu':<60} {'Quantity':^20}{'Price':^20}")
+        print("-----------------------------------------------------------------------------------------------------")
+        total_price = []
+        for i in range(len(self.room_info)):
+            # Floor: 2, Room: P1
+            # room_info.append([floor, select_room, hours, price])
+            total_price.append(self.room_info[i][3])
+            print(f"  Floor:{self.room_info[i][0]}")
+            print(f"  --- Room:{self.room_info[i][1]:<51}{self.room_info[i][2]:^20}{self.room_info[i][3]:^20}")
 
-    def store(self, Customer_name):
-        customer_data = {
-            Customer_name.customer_name: {
-                "name": Customer_name.customer_name,
-                "nickname": Customer_name.customer_nickname,
-                "phone number": Customer_name.customer_phone,
-                "book": Customer_name.book
-            }
+        for k in range(len(self.dessert_info)):
+            # dessert_info.append([check, order, price])
+            total_price.append(self.dessert_info[k][2])
+            print(f"  {self.dessert_info[k][0]:<60}{self.dessert_info[k][1]:^20}{self.dessert_info[k][2]:^20}")
 
-        }
-        try:
-            with open("Customers_info.json", "r") as file:
-                data = json.load(file)
-        except FileNotFoundError:
-            with open("Customers_info.json", "w") as file:
-                json.dump(customer_data, file, indent=4)
-        else:
-            data.update(customer_data)
-            with open("Customers_info.json", "w") as file:
-                json.dump(data, file, indent=4)
-
-    def cancle(self, Customer_name):
-        try:
-            with open("Customers_info.json", "r") as data_file:
-                data = json.load(data_file)
-        except FileNotFoundError:
-            print(f"No data for account number: {Customer_name}")
-        else:
-            if Customer_name in data:
-                for account in list(data):
-                    data.pop(account)
-                    with open("Customers_info.json", "w") as data_file:
-                        json.dump(data, data_file, indent=4)
-                        # Delete Customer's name in json file.
-                print(f"DELETE account {Customer_name}")
-            else:
-                print(f"No data for account number: {Customer_name}")
-                # If data is no longer exist.
-
-    def __str__(self):
-        return f"name{self.__customer_name}, nickname: {self.__customer_name}, phone number: {self.__customer_name}, " \
-               f"book: {self.__customer_name} "
+        for j in range(len(self.book)):
+            total_price.append(10)
+            print(f"  {self.book[j][0]:<60}")
+            print(f"   -- by {self.book[j][1]:<53}{'1':^20}{'10':^20}")
+        print("-----------------------------------------------------------------------------------------------------")
+        print("")
+        print(f"  Total price: {sum(total_price)} Baht.")
+        print("")
+        print(f"  Name: {self.customer_name}")
+        print(f"  Nickname: {self.customer_nickname}")
+        print(f"  Phone number: {self.customer_phone}")
+        print("-----------------------------------------------------------------------------------------------------")
+        print("")
+        print("")
+        print(f"{'Thank you! Your booking is confirmed.':^100}")
+        print(f"{'Have a good day 😊':^100}")
+        print("")
+        print("")
+        print("=====================================================================================================")
