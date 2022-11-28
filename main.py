@@ -1,10 +1,10 @@
 import csv
-from Taonap_Bill import Bill
+from Taonap_Bill import Customer
 from Rooms import Rooms
 from Dessert import Dessert
 from Books import Books
 
-# # better version change to def
+# better version change to def
 room_info = []
 choice_room = input("Do you want to book a room? (Yes/No): ")
 while choice_room != "Yes":
@@ -20,7 +20,6 @@ while choice_room != "Yes":
 
 floor = input("What floor do you want to book? (1/2): ")
 while floor != "1" and floor != "2":
-    print(type(floor))
     print("Sorry, but we have only 2 floors.")
     floor = input("What floor do you want to book? (1/2): ")
 
@@ -28,11 +27,11 @@ if floor == "1":
     # Screen → show a room of floor 1
     select_room = input("What room do you want?: ")
     customer_select = Rooms(select_room, floor)
-    boolean = customer_select.search()
+    boolean = customer_select.search
     while not boolean:
         select_room = input("What room do you want?: ")
         customer_select = Rooms(select_room, floor)
-        boolean = customer_select.search()
+        boolean = customer_select.search
 
 if floor == "2":
     # Screen → show a room of floor 2
@@ -54,12 +53,15 @@ if isinstance(hours, int):
 
 else:
     raise ValueError("Hour(s) should be numeric.")
-room_info.append([floor, select_room, hours, price])
-
+print("")
+print("")
 # # Dessert
 
 choice_dessert = input("Do you want any dessert?(Yes/No): ")
 dessert_info = []
+while choice_dessert != "Yes" and choice_dessert != "No":
+    print("please choose again. 🥹")
+    choice_dessert = input("Do you want any dessert?(Yes/No): ")
 if choice_dessert == "Yes":
     while choice_dessert == "Yes":
         # Screen → The menu of desserts
@@ -89,11 +91,15 @@ if choice_dessert == "Yes":
         dessert_info.append([check, order, price])
 if choice_dessert == "No":
     pass
-
+print("")
+print("")
 # # Book
 
 choice_book = input("Do you want any interesting books?(Yes/No): ")
 book_info = []
+while choice_book != "Yes" and choice_book != "No":
+    print("please choose again. 🥹")
+    choice_book = input("Do you want any interesting books?(Yes/No): ")
 while choice_book == 'Yes':
     # Screen → The List of the books
     with open("Books.csv", "r") as file:
@@ -122,18 +128,20 @@ while choice_book == 'Yes':
         choice_book = input("Do you want more interesting books?(Yes/No): ")
 if choice_book == "No":
     pass
-
+print("")
+print("")
 #  Customer info
 
 # Screen → TAO NAP CARD without name, nickname and phone number
-customer_name = input("What is your name - lastname?: ")
-customer_nickname = input("What is your nickname?: ")
-customer_phone = input("What is your phone number?: ")
-customer_info = Bill(customer_name, customer_nickname, customer_phone)
+customer_name = input("What is your name - lastname?: ")  # Chananthida Sopaphol
+customer_nickname = input("What is your nickname?: ")  # First
+customer_phone = input("What is your phone number?: ")  # 0981027726
+customer_info = Customer(customer_name, customer_nickname, customer_phone, book_info)
+geek = customer_info.store
 # Screen → TAO NAP CARD with name, nickname and phone number
 # Screen → The bill of the things that you book.
 
-# Bill
+# # Bill
 print("")
 print("")
 print("")
@@ -142,32 +150,35 @@ print("")
 print(f"{'TAONAP':^100}")
 print(f"{'-- No day is so bad it can’t be fixed with a nap --':^100}")
 print("")
-print(f"{'  Menu':<60}{'Quantity':^20}{'Price':^20}")
+print("-----------------------------------------------------------------------------------------------------")
+print(f"{'  Menu':<60}   {'Quantity':^20}   {'Price':^20}")
 print("-----------------------------------------------------------------------------------------------------")
 total_price = []
 for i in range(len(room_info)):
     # Floor: 2, Room: P1
     # room_info.append([floor, select_room, hours, price])
     total_price.append(room_info[i][3])
-    print(f"  Floor:{room_info[i][0]}, Room:{room_info[i][1]:<40}{room_info[i][2]:^20}{room_info[i][3]:^20}")
+    print(f"  Floor:{room_info[i][0]}")
+    print(f"  --- Room:{room_info[i][1]:<51}{room_info[i][2]:^20}{room_info[i][3]:^20}")
 
 for k in range(len(dessert_info)):
     # dessert_info.append([check, order, price])
     total_price.append(dessert_info[k][2])
-    print(f"{dessert_info[k][0]:<60}{dessert_info[i][1]:^20}{dessert_info[k][2]:^20}")
+    print(f"  {dessert_info[k][0]:<60}{dessert_info[k][1]:^20}{dessert_info[k][2]:^20}")
 
 for j in range(len(book_info)):
     total_price.append(10)
-    print(f"  {book_info[j][0]} - {book_info[j][1]:<40}{'1':^20}{'10':^20}")
+    print(f"  {book_info[j][0]:<60}")
+    print(f"   -- by {book_info[j][1]:<53}{'1':^20}{'10':^20}")
 print("-----------------------------------------------------------------------------------------------------")
 print("")
-print(f"Total price: {sum(total_price)} Baht")
+print(f"  Total price: {sum(total_price)} Baht.")
 print("")
-print("")
-print(f"Name: {customer_name}")
-print(f"Nickname: {customer_nickname}")
-print(f"Phone number: {customer_phone}")
+print(f"  Name: {customer_name}")
+print(f"  Nickname: {customer_nickname}")
+print(f"  Phone number: {customer_phone}")
 print("-----------------------------------------------------------------------------------------------------")
+print("")
 print("")
 print(f"{'Thank you! Your booking is confirmed.':^100}")
 print(f"{'Have a good day 😊':^100}")
