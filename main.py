@@ -1,8 +1,10 @@
 import csv
+import sys
 from Taonap_Bill import Customer
 from Rooms import Rooms
 from Dessert import Dessert
 from Books import Books
+sys.setrecursionlimit(1500)
 
 # better version change to def
 room_info = []
@@ -62,32 +64,34 @@ dessert_info = []
 while choice_dessert != "Yes" and choice_dessert != "No":
     print("please choose again. 🥹")
     choice_dessert = input("Do you want any dessert?(Yes/No): ")
-if choice_dessert == "Yes":
-    while choice_dessert == "Yes":
-        # Screen → The menu of desserts
-        with open("Dessert.csv", "r") as file:
-            dessert_list = csv.DictReader(file)
-            print("----------------------------------------------------------")
-            print(f"{'ʕ •ᴥ•ʔゝ☆  Dessert  ʕ·ᴥ·　ʔ':^60}")
-            print("----------------------------------------------------------")
-            for i in dessert_list:
-                print(f"{i['list']:^3}|  {i['menu']:<40} {i['price']:>8}.-     ")
-            print("----------------------------------------------------------")
+while choice_dessert == "Yes":
+    # Screen → The menu of desserts
+    with open("Dessert.csv", "r") as file:
+        dessert_list = csv.DictReader(file)
+        print("----------------------------------------------------------")
+        print(f"{'ʕ •ᴥ•ʔゝ☆  Dessert  ʕ·ᴥ·　ʔ':^60}")
+        print("----------------------------------------------------------")
+        for i in dessert_list:
+            print(f"{i['list']:^3}|  {i['menu']:<40} {i['price']:>8}.-     ")
+        print("----------------------------------------------------------")
+    select_dessert = input("Which one do you want to order?(1-10): ")
+    dessert = Dessert(select_dessert)
+    check = dessert.search()
+    # go to search function in dessert.py
+    while not check:
         select_dessert = input("Which one do you want to order?(1-10): ")
         dessert = Dessert(select_dessert)
         check = dessert.search()
-        # go to search function in dessert.py
-        while not check:
-            select_dessert = input("Which one do you want to order?(1-10): ")
-            dessert = Dessert(select_dessert)
-            check = dessert.search()
-        order = int(input("How many orders do you want?: "))
-        print(f"Great choice, You order {order} {check}.")
-        # don't show this just check
-        price = dessert.price()
-        dessert_info.append([check, order, price * order])
-        print("")
-        choice_dessert = input("Do you want more dessert(Yes/No): ")
+    order = int(input("How many orders do you want?: "))
+    print(f"Great choice, You order {order} {check}.")
+    # don't show this just check
+    price = dessert.price()
+    dessert_info.append([check, order, price * order])
+    print("")
+    choice_dessert = input("Do you want more dessert(Yes/No): ")
+    while choice_dessert != "Yes" and choice_dessert != "No":
+        print("please choose again. 🥹")
+        choice_dessert = input("Do you want any dessert?(Yes/No): ")
 if choice_dessert == "No":
     pass
 print("")
@@ -126,6 +130,9 @@ while choice_book == 'Yes':
             # Screen → Delete number 4 book.
         print("")
         choice_book = input("Do you want more interesting books?(Yes/No): ")
+        while choice_book != "Yes" and choice_book != "No":
+            print("please choose again. 🥹")
+            choice_book = input("Do you want any interesting books?(Yes/No): ")
 if choice_book == "No":
     pass
 print("")
@@ -136,52 +143,7 @@ print("")
 customer_name = input("What is your name - lastname?: ")  # Chananthida Sopaphol
 customer_nickname = input("What is your nickname?: ")  # First
 customer_phone = input("What is your phone number?: ")  # 0981027726
-customer_info = Customer(customer_name, customer_nickname, customer_phone, book_info)
-geek = customer_info.store
+customer_info = Customer(customer_name, customer_nickname, customer_phone, room_info, dessert_info, book_info)
+bill = customer_info.print_bill()  # Bill
 # Screen → TAO NAP CARD with name, nickname and phone number
 # Screen → The bill of the things that you book.
-
-# # Bill
-print("")
-print("")
-print("")
-print("=====================================================================================================")
-print("")
-print(f"{'TAONAP':^100}")
-print(f"{'-- No day is so bad it can’t be fixed with a nap --':^100}")
-print("")
-print("-----------------------------------------------------------------------------------------------------")
-print(f"{'  Menu':<60} {'Quantity':^20}{'Price':^20}")
-print("-----------------------------------------------------------------------------------------------------")
-total_price = []
-for i in range(len(room_info)):
-    # Floor: 2, Room: P1
-    # room_info.append([floor, select_room, hours, price])
-    total_price.append(room_info[i][3])
-    print(f"  Floor:{room_info[i][0]}")
-    print(f"  --- Room:{room_info[i][1]:<51}{room_info[i][2]:^20}{room_info[i][3]:^20}")
-
-for k in range(len(dessert_info)):
-    # dessert_info.append([check, order, price])
-    total_price.append(dessert_info[k][2])
-    print(f"  {dessert_info[k][0]:<60}{dessert_info[k][1]:^20}{dessert_info[k][2]:^20}")
-
-for j in range(len(book_info)):
-    total_price.append(10)
-    print(f"  {book_info[j][0]:<60}")
-    print(f"   -- by {book_info[j][1]:<53}{'1':^20}{'10':^20}")
-print("-----------------------------------------------------------------------------------------------------")
-print("")
-print(f"  Total price: {sum(total_price)} Baht.")
-print("")
-print(f"  Name: {customer_name}")
-print(f"  Nickname: {customer_nickname}")
-print(f"  Phone number: {customer_phone}")
-print("-----------------------------------------------------------------------------------------------------")
-print("")
-print("")
-print(f"{'Thank you! Your booking is confirmed.':^100}")
-print(f"{'Have a good day 😊':^100}")
-print("")
-print("")
-print("=====================================================================================================")
