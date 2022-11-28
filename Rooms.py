@@ -4,8 +4,8 @@ import csv
 
 class Rooms:
     def __init__(self, rooms_name, floor):
-        self.__rooms_name = rooms_name
-        self.__floor = floor
+        self.rooms_name = rooms_name
+        self.floor = floor
 
     @property
     def rooms_name(self):
@@ -13,7 +13,8 @@ class Rooms:
 
     @rooms_name.setter
     def rooms_name(self, new_rooms):
-        self.rooms_name = new_rooms
+        self.__rooms_name = new_rooms
+
 
     @property
     def floor(self):
@@ -21,9 +22,12 @@ class Rooms:
 
     @floor.setter
     def floor(self, new_floor):
-        self.floor = new_floor
+        if not new_floor.isnumeric():
+            raise ValueError("Floor should be numeric")
+        self.__floor = new_floor
 
-    def check(self):
+    def search(self):
+        check = False
         with open('Rooms.csv', "r") as csv_file:
             csv_reader = csv.DictReader(csv_file)
             for i in csv_reader:

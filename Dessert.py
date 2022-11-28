@@ -13,7 +13,7 @@ class Dessert:
     def menu(self, new_menu):
         self.menu = new_menu
 
-    def check(self):
+    def search(self):
         with open("Dessert.csv", "r") as file:
             data_dessert = csv.DictReader(file)
             for i in data_dessert:

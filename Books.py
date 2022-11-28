@@ -11,9 +11,11 @@ class Books:
 
     @order.setter
     def order(self, new_order):
+        if not new_order.isnumeric():
+            raise ValueError("Order should be numeric.")
         self.__order = new_order
 
-    def check(self):
+    def search(self):
         with open("Books.csv", "r") as file:
             data_books = csv.DictReader(file)
             book_info = []
