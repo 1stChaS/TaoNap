@@ -49,13 +49,13 @@ if isinstance(hours, int):
     customer_select = Rooms(select_room, floor)
     # don't show this just check
     price = customer_select.price() * hours
-    print(price)
 
 else:
     raise ValueError("Hour(s) should be numeric.")
+room_info.append([floor, select_room, hours, price])
 print("")
-print("")
-# # Dessert
+
+# Dessert
 
 choice_dessert = input("Do you want any dessert?(Yes/No): ")
 dessert_info = []
@@ -67,12 +67,12 @@ if choice_dessert == "Yes":
         # Screen → The menu of desserts
         with open("Dessert.csv", "r") as file:
             dessert_list = csv.DictReader(file)
-            print("-------------------------------------------")
-            print(f"{'ʕ •ᴥ•ʔゝ☆ Dessert ʕ·ᴥ·　ʔ':^42}")
-            print("-------------------------------------------")
+            print("----------------------------------------------------------")
+            print(f"{'ʕ •ᴥ•ʔゝ☆  Dessert  ʕ·ᴥ·　ʔ':^60}")
+            print("----------------------------------------------------------")
             for i in dessert_list:
-                print(f"{i['list']:^3}| {i['menu']:<26} {i['price']:>8}.-")
-            print("-------------------------------------------")
+                print(f"{i['list']:^3}|  {i['menu']:<40} {i['price']:>8}.-     ")
+            print("----------------------------------------------------------")
         select_dessert = input("Which one do you want to order?(1-10): ")
         dessert = Dessert(select_dessert)
         check = dessert.search()
@@ -85,14 +85,13 @@ if choice_dessert == "Yes":
         print(f"Great choice, You order {order} {check}.")
         # don't show this just check
         price = dessert.price()
-        print(price)
-        print(price * order)
+        dessert_info.append([check, order, price * order])
+        print("")
         choice_dessert = input("Do you want more dessert(Yes/No): ")
-        dessert_info.append([check, order, price])
 if choice_dessert == "No":
     pass
 print("")
-print("")
+
 # # Book
 
 choice_book = input("Do you want any interesting books?(Yes/No): ")
@@ -104,14 +103,14 @@ while choice_book == 'Yes':
     # Screen → The List of the books
     with open("Books.csv", "r") as file:
         data_books = csv.DictReader(file)
-        print("--------------------------------------------------")
-        print(f"{'⋆｡ﾟ☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆ Books ⋆｡ﾟ☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆':^50}")
-        print("--------------------------------------------------")
+        print("----------------------------------------------------------")
+        print(f"{'⋆｡ﾟ☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆ Books ⋆｡ﾟ☁︎｡⋆｡ ﾟ☾ ﾟ｡⋆':^60}")
+        print("----------------------------------------------------------")
         for i in data_books:
             print("")
             print(f"{i['order']:^3}| {i['book_name']:<51}")
             print(f"by {i['author']:<35}")
-        print("--------------------------------------------------")
+        print("----------------------------------------------------------")
         select_book = input("Which one do you want to read?(1-20): ")
         book = Books(select_book)
         check_book = book.search()
@@ -125,11 +124,12 @@ while choice_book == 'Yes':
             # try to do it again every round should delete book which a customer choose from the menu.
             # Screen → Delete number 4 book. or maybe delete in list is better!
             # Screen → Delete number 4 book.
+        print("")
         choice_book = input("Do you want more interesting books?(Yes/No): ")
 if choice_book == "No":
     pass
 print("")
-print("")
+
 #  Customer info
 
 # Screen → TAO NAP CARD without name, nickname and phone number
@@ -151,7 +151,7 @@ print(f"{'TAONAP':^100}")
 print(f"{'-- No day is so bad it can’t be fixed with a nap --':^100}")
 print("")
 print("-----------------------------------------------------------------------------------------------------")
-print(f"{'  Menu':<60}   {'Quantity':^20}   {'Price':^20}")
+print(f"{'  Menu':<60} {'Quantity':^20}{'Price':^20}")
 print("-----------------------------------------------------------------------------------------------------")
 total_price = []
 for i in range(len(room_info)):
