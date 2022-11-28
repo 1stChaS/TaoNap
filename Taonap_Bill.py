@@ -1,3 +1,8 @@
+import sys
+sys.setrecursionlimit(1500)
+# print(sys.getrecursionlimit())
+
+
 class Customer:
     def __init__(self, customer_name, customer_nickname, customer_phone, room_info, dessert_info, book):
         if not isinstance(customer_name, str):  # name with surname ex. Chananthida Sopaphol
@@ -13,7 +18,7 @@ class Customer:
         self.__customer_phone = customer_phone
         self.__room_info = room_info
         self.dessert_info = dessert_info
-        self.book = book
+        self.__book = book
 
     @property
     def customer_name(self):
@@ -57,24 +62,21 @@ class Customer:
 
     @property
     def dessert_info(self):
-        return self.dessert_info
+        return self.__dessert_info
 
     @dessert_info.setter
     def dessert_info(self, new_dessert):
-        self.dessert_info = new_dessert
+        self.__dessert_info = new_dessert
 
     @property
     def book(self):
-        return self.book
+        return self.__book
 
     @book.setter
     def book(self, new_book):
-        self.book = new_book
+        self.__book = new_book
 
     def print_bill(self):
-        print("")
-        print("")
-        print("")
         print("=====================================================================================================")
         print("")
         print(f"{'TAONAP':^100}")
@@ -115,3 +117,5 @@ class Customer:
         print("")
         print("")
         print("=====================================================================================================")
+
+# file = open("Bill.txt", "w")
