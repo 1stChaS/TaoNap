@@ -1,4 +1,5 @@
 import sys
+import time
 sys.setrecursionlimit(1500)
 # print(sys.getrecursionlimit())
 
@@ -77,45 +78,55 @@ class Customer:
         self.__book = new_book
 
     def print_bill(self):
-        print("=====================================================================================================")
-        print("")
-        print(f"{'TAONAP':^100}")
-        print(f"{'-- No day is so bad it can’t be fixed with a nap --':^100}")
-        print("")
-        print("-----------------------------------------------------------------------------------------------------")
-        print(f"{'  Menu':<60} {'Quantity':^20}{'Price':^20}")
-        print("-----------------------------------------------------------------------------------------------------")
         total_price = []
-        for i in range(len(self.room_info)):
-            # Floor: 2, Room: P1
-            # room_info.append([floor, select_room, hours, price])
-            total_price.append(self.room_info[i][3])
-            print(f"  Floor:{self.room_info[i][0]}")
-            print(f"  --- Room:{self.room_info[i][1]:<51}{self.room_info[i][2]:^20}{self.room_info[i][3]:^20}")
+        file_name = time.strftime(self.customer_name+"%d-%b-%Y_%H:%M:%S", time.localtime())
+        with open(file_name+".txt", "w") as new_bill:
+            for i in range(101):
+                new_bill.write("=")
+            new_bill.writelines("\n" "\n")
+            new_bill.write(f"{'TAONAP':^100}\n")
+            new_bill.write(f"{'-- No day is so bad it can’t be fixed with a nap --':^100}\n \n")
+            for i in range(101):
+                new_bill.write("-")
+            new_bill.write("\n")
+            new_bill.write(f"{'  Menu':<60} {'Quantity':^20}{'Price':^20}\n")
+            for i in range(101):
+                new_bill.write("-")
+            new_bill.write("\n")
 
-        for k in range(len(self.dessert_info)):
-            # dessert_info.append([check, order, price])
-            total_price.append(self.dessert_info[k][2])
-            print(f"  {self.dessert_info[k][0]:<60}{self.dessert_info[k][1]:^20}{self.dessert_info[k][2]:^20}")
+            for i in range(len(self.room_info)):
+                # Floor: 2, Room: P1
+                # room_info.append([floor, select_room, hours, price])
+                total_price.append(self.room_info[i][3])
+                new_bill.write(f"  Floor: {self.room_info[i][0]}\n")
+                new_bill.write(f"  --- Room: {self.room_info[i][1]:<50}"
+                               f"{self.room_info[i][2]:^20}{self.room_info[i][3]:^20}\n")
+            for k in range(len(self.dessert_info)):
+                # dessert_info.append([check, order, price])
+                total_price.append(self.dessert_info[k][2])
+                new_bill.write(f"  {self.dessert_info[k][0]:<60}"
+                               f"{self.dessert_info[k][1]:^20}{self.dessert_info[k][2]:^20}\n")
 
-        for j in range(len(self.book)):
-            total_price.append(10)
-            print(f"  {self.book[j][0]:<60}")
-            print(f"   -- by {self.book[j][1]:<53}{'1':^20}{'10':^20}")
-        print("-----------------------------------------------------------------------------------------------------")
-        print("")
-        print(f"  Total price: {sum(total_price)} Baht.")
-        print("")
-        print(f"  Name: {self.customer_name}")
-        print(f"  Nickname: {self.customer_nickname}")
-        print(f"  Phone number: {self.customer_phone}")
-        print("-----------------------------------------------------------------------------------------------------")
-        print("")
-        print("")
-        print(f"{'Thank you! Your booking is confirmed.':^100}")
-        print(f"{'Have a good day 😊':^100}")
-        print("")
-        print("")
-        print("=====================================================================================================")
+            for j in range(len(self.book)):
+                total_price.append(10)
+                new_bill.write(f"  {self.book[j][0]:<60}\n")
+                new_bill.write(f"   -- by {self.book[j][1]:<53}{'1':^20}{'10':^20}\n")
+            for i in range(101):
+                new_bill.write("-")
+            new_bill.write("\n")
+            new_bill.write(f"  Total price: {sum(total_price)} Baht.\n")
+            new_bill.write("\n")
+            new_bill.write(f"  Name: {self.customer_name}\n")
+            new_bill.write(f"  Nickname: {self.customer_nickname}\n")
+            new_bill.write(f"  Phone number: {self.customer_phone}\n")
+            for i in range(101):
+                new_bill.write("-")
+            new_bill.write("\n")
+            new_bill.write("\n")
+            new_bill.write(f"{'Thank you! Your booking is confirmed.':^100}\n")
+            new_bill.write(f"{'Have a good day 😊':^100}\n")
+            new_bill.write("\n")
+            new_bill.write("\n")
+            for i in range(101):
+                new_bill.write("=")
 
-# file = open("Bill.txt", "w")
