@@ -1,5 +1,8 @@
 import csv
 import sys
+from turtle import Shape, Screen, Turtle
+from tkinter import PhotoImage
+from PIL import Image, ImageTk
 from Taonap_Bill import Customer
 from Rooms import Rooms
 from Dessert import Dessert
@@ -8,17 +11,19 @@ sys.setrecursionlimit(1500)
 
 # better version change to def
 room_info = []
-choice_room = input("Do you want to book a room? (Yes/No): ")
-while choice_room != "Yes":
-    if choice_room == "No":
-        # Screen → show a cute turtle swimming for 2 times and ask again
-        pass
-    if choice_room == "Yes":
-        # Screen → show a room number of two floor
-        pass
-    else:
-        print("please choose again. 🥹")
+choice_room = input("Do you want to book or cancel a room? (Book/Cancel): ")
+while choice_room != "Book" and choice_room != "Cancel":
+    print("please choose again. 🥹")
     choice_room = input("Do you want to book a room? (Yes/No): ")
+if choice_room == "Cancel":
+    img = Image.open('facts-turtles.jpg')
+    img.show()
+    # looking in csv file
+
+
+if choice_room == "Book":
+    # Screen → show a room number of two floor
+    pass
 
 floor = input("What floor do you want to book? (1/2): ")
 while floor != "1" and floor != "2":
@@ -27,16 +32,41 @@ while floor != "1" and floor != "2":
 
 if floor == "1":
     # Screen → show a room of floor 1
+    wn = Screen()
+    wn.setup(width=500, height=650)
+    wn.bgcolor('white')
+
+    img = Image.open("Floor1.png")
+    # w, h = img.size
+    w = int(img.width * 0.4)
+    h = int(img.height * 0.4)
+    img = img.resize((w, h))
+    pic = ImageTk.PhotoImage(img)
+    wn.addshape('pic', Shape("image", pic))
+    tr = Turtle("pic")
     select_room = input("What room do you want?: ")
     customer_select = Rooms(select_room, floor)
-    boolean = customer_select.search
+    boolean = customer_select.search()
     while not boolean:
         select_room = input("What room do you want?: ")
         customer_select = Rooms(select_room, floor)
-        boolean = customer_select.search
+        boolean = customer_select.search()
+    wn.bye()
 
 if floor == "2":
     # Screen → show a room of floor 2
+    wn = Screen()
+    wn.setup(width=500, height=650)
+    wn.bgcolor('white')
+
+    img = Image.open("Floor2.png")
+    # w, h = img.size
+    w = int(img.width * 0.4)
+    h = int(img.height * 0.4)
+    img = img.resize((w, h))
+    pic = ImageTk.PhotoImage(img)
+    wn.addshape('pic', Shape("image", pic))
+    tr = Turtle("pic")
     select_room = input("What room do you want?: ")
     customer_select = Rooms(select_room, floor)
     boolean = customer_select.search()
@@ -45,6 +75,7 @@ if floor == "2":
         select_room = input("What room do you want?: ")
         customer_select = Rooms(select_room, floor)
         boolean = customer_select.search()
+    wn.bye()
 
 hours = int(input("How long do you want to book?(hour(s)): "))
 if isinstance(hours, int):
