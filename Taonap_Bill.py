@@ -6,7 +6,7 @@ sys.setrecursionlimit(1500)
 
 class Customer:
     def __init__(self, customer_name, customer_nickname, customer_phone, room_info, dessert_info, book):
-        if not isinstance(customer_name, str):  # name with surname ex. Chananthida Sopaphol
+        if not customer_name.isalpha():  # name with surname ex. Chananthida Sopaphol
             raise TypeError("Your name should be string.")
         if not customer_nickname.isalpha():
             raise ValueError("Your nickname should be string.")
@@ -101,6 +101,7 @@ class Customer:
                 new_bill.write(f"  Floor: {self.room_info[i][0]}\n")
                 new_bill.write(f"  --- Room: {self.room_info[i][1]:<50}"
                                f"{self.room_info[i][2]:^20}{self.room_info[i][3]:^20}\n")
+
             for k in range(len(self.dessert_info)):
                 # dessert_info.append([check, order, price])
                 total_price.append(self.dessert_info[k][2])
@@ -111,6 +112,7 @@ class Customer:
                 total_price.append(10)
                 new_bill.write(f"  {self.book[j][0]:<60}\n")
                 new_bill.write(f"   -- by {self.book[j][1]:<53}{'1':^20}{'10':^20}\n")
+
             for i in range(101):
                 new_bill.write("-")
             new_bill.write("\n")
