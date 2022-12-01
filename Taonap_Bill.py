@@ -1,16 +1,14 @@
-import sys
 import time
-sys.setrecursionlimit(1500)
-# print(sys.getrecursionlimit())
+import json
 
 
-class Customer:
+class Bill:
     def __init__(self, customer_name, customer_nickname, customer_phone, room_info, dessert_info, book):
-        if not customer_name.isalpha():  # name with surname ex. Chananthida Sopaphol
+        if not isinstance(customer_name, str):  # name with surname ex. Chananthida Sopaphol
             raise TypeError("Your name should be string.")
-        if not customer_nickname.isalpha():
+        if not isinstance(customer_nickname, str):
             raise ValueError("Your nickname should be string.")
-        if not customer_phone.isnumeric():
+        if not isinstance(customer_phone, str):
             raise ValueError("Your phone number should be numeric.")
         if len(customer_phone) != 10:
             raise ValueError("Your phone number should have 10 digits.")
@@ -76,6 +74,28 @@ class Customer:
     @book.setter
     def book(self, new_book):
         self.__book = new_book
+
+    def store(self):
+        customer_data = {
+            self.__customer_name: {
+                "nickname": self.__customer_nickname,
+                "phone number": self.__customer_phone,
+                "floor": self.__room_info[0][0],
+                "Room": self.__room_info[0][1],
+                "Books": self.__book
+
+            }
+        }
+        try:
+            with open("Customers_info.json", "r") as file:
+                data = json.load(file)
+        except FileNotFoundError:
+            with open("Customers_info.json", "w") as file:
+                json.dump(customer_data, file, indent=4)
+        else:
+            data.update(customer_data)
+            with open("Customers_info.json", "w") as file:
+                json.dump(data, file, indent=4)
 
     def print_bill(self):
         total_price = []
