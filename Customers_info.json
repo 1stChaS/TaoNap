@@ -1,0 +1,17 @@
+{
+    "chas": {
+        "nickname": "first",
+        "phone number": "1234567890",
+        "Room": "N112",
+        "Books": [
+            [
+                "The Bluest Eye",
+                "Toni Morrison"
+            ],
+            [
+                "Feline Philosophy: Cats and the Meaning of Life",
+                "John Gray"
+            ]
+        ]
+    }
+}

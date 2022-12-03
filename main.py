@@ -1,7 +1,7 @@
 import csv
 from turtle import Shape, Screen, Turtle
 from PIL import Image, ImageTk
-from Database import Customer
+from Cancel import Customer
 from Taonap_Bill import Bill
 from Rooms import Rooms
 from Dessert import Dessert
@@ -179,7 +179,6 @@ if choice_room == "Book":
 
     #  Customer info
 
-    # Screen → TAO NAP CARD without name, nickname and phone number
     customer_name = input("What is your name?: ")  # Chananthida Sopaphol
     customer_nickname = input("What is your nickname?: ")  # First
     customer_phone = input("What is your phone number?: ")  # 0981027726
@@ -194,4 +193,7 @@ if choice_room == "Book":
 if choice_room == "Cancel":
     name = input("What is your name?: ")
     database = Customer(name)
-    find = database.cancle(name)
+    database.cancle(name)
+
+
+

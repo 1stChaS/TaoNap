@@ -1,11 +1,11 @@
-import Taonap_Bill
+import json
 import csv
 
 
 class Rooms:
     def __init__(self, rooms_name, floor):
-        self.rooms_name = rooms_name
-        self.floor = floor
+        self.__rooms_name = rooms_name
+        self.__floor = floor
 
     @property
     def rooms_name(self):
@@ -14,7 +14,6 @@ class Rooms:
     @rooms_name.setter
     def rooms_name(self, new_rooms):
         self.__rooms_name = new_rooms
-
 
     @property
     def floor(self):
@@ -31,13 +30,34 @@ class Rooms:
         with open('Rooms.csv', "r") as csv_file:
             csv_reader = csv.DictReader(csv_file)
             for i in csv_reader:
-                if self.__floor == "1":
-                    if i['floor'] == "1" and self.__rooms_name == i['name_room']:
+                if self.floor == "1":
+                    if self.__rooms_name == i['name_room']:
+                        try:
+                            with open("Customers_info.json", "r") as data_file:
+                                data = json.load(data_file)
+                        except FileNotFoundError:
+                            pass
+                        else:
+                            for k in data.values():
+                                if self.rooms_name == k["Room"]:
+                                    print("Oh, sorry for the inconvenience but someone have already book this room.")
+                                    return False
                         check = True
 
                 if self.__floor == "2":
-                    if i['floor'] == "2" and self.__rooms_name == i['name_room']:
+                    if self.__rooms_name == i['name_room']:
+                        try:
+                            with open("Customers_info.json", "r") as data_file:
+                                data = json.load(data_file)
+                        except FileNotFoundError:
+                            pass
+                        else:
+                            for k in data.values():
+                                if self.rooms_name == k["Room"]:
+                                    print("Oh, sorry for the inconvenience but someone have already book this room.")
+                                    return False
                         check = True
+
             if not check:
                 print("Sorry, we don’t have a room that you want to book.")
                 return False
@@ -47,6 +67,6 @@ class Rooms:
         with open('Rooms.csv', "r") as csv_file:
             csv_reader = csv.DictReader(csv_file)
             for i in csv_reader:
-                if i['floor'] == self.__floor and i['name_room'] == self.__rooms_name:
+                if i['floor'] == self.floor and i['name_room'] == self.rooms_name:
                     return int(i['price'])
         # ValueError: I/O operation on closed file is meaning for loop not in with open

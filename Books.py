@@ -1,4 +1,5 @@
 import csv
+import json
 
 
 class Books:
@@ -20,7 +21,19 @@ class Books:
             data_books = csv.DictReader(file)
             book_info = []
             for i in data_books:
-                if self.__order == i['order']:
+                if self.order == i['order']:
+                    try:
+                        with open("Customers_info.json", "r") as data_file:
+                            data = json.load(data_file)
+                    except FileNotFoundError:
+                        pass
+                    else:
+                        for k in data.values():
+                            for m in k["Books"]:
+                                if m[0] == i['book_name']:
+                                    print("Oh, sorry for the inconvenience but someone is reading this book right now.")
+                                    return False
+                if self.order == i['order']:
                     book_info.append(i['book_name'])
                     book_info.append(i['author'])
                     return book_info
@@ -28,7 +41,6 @@ class Books:
         if not check:
             print("Sorry, we don't have a book that you want.")
             print("Please try again")
-            print("Oh, sorry for the inconvenience but maybe someone is reading this book now.")
 
     # def delete book from file and when the book is return just put it back to csv file and sort it
 

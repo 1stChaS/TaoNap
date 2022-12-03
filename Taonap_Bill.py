@@ -4,11 +4,11 @@ import json
 
 class Bill:
     def __init__(self, customer_name, customer_nickname, customer_phone, room_info, dessert_info, book):
-        if not isinstance(customer_name, str):  # name with surname ex. Chananthida Sopaphol
+        if not customer_name.isalpha:  # name with surname ex. Chananthida Sopaphol
             raise TypeError("Your name should be string.")
-        if not isinstance(customer_nickname, str):
+        if not customer_nickname.isalpha:
             raise ValueError("Your nickname should be string.")
-        if not isinstance(customer_phone, str):
+        if not customer_phone.isnumeric:
             raise ValueError("Your phone number should be numeric.")
         if len(customer_phone) != 10:
             raise ValueError("Your phone number should have 10 digits.")
@@ -80,7 +80,6 @@ class Bill:
             self.__customer_name: {
                 "nickname": self.__customer_nickname,
                 "phone number": self.__customer_phone,
-                "floor": self.__room_info[0][0],
                 "Room": self.__room_info[0][1],
                 "Books": self.__book
 

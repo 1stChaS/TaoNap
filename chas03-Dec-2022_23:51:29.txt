@@ -7,19 +7,18 @@
   Menu                                                             Quantity             Price        
 -----------------------------------------------------------------------------------------------------
   Floor: 2
-  --- Room: N108                                                       5                  500         
-  Blueberry cheesecake                                                 2                  140         
-  The School for Good Mothers                                 
-   -- by Jessamin Chan                                                 1                   10         
-  A brief history of time                                     
-   -- by Stephen Hawking                                               1                   10         
-  The Maid                                                    
-   -- by Nita Prose                                                    1                   10         
+  --- Room: N112                                                       1                  100         
+  Bingsu                                                               1                  150         
+  Pumpkin pie                                                          1                   70         
+  The Bluest Eye                                              
+   -- by Toni Morrison                                                 1                   10         
+  Feline Philosophy: Cats and the Meaning of Life             
+   -- by John Gray                                                     1                   10         
 -----------------------------------------------------------------------------------------------------
-  Total price: 670 Baht.
+  Total price: 340 Baht.
 
-  Name: chass
-  Nickname: soopas
+  Name: chas
+  Nickname: first
   Phone number: 1234567890
 -----------------------------------------------------------------------------------------------------
 
