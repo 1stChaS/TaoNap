@@ -13,5 +13,28 @@
                 "John Gray"
             ]
         ]
+    },
+    "lady": {
+        "nickname": "gigy",
+        "phone number": "1234567890",
+        "Room": "N111",
+        "Books": [
+            [
+                "The strange house",
+                "Uketsu"
+            ],
+            [
+                "The lost hero",
+                "Rick Riordan"
+            ],
+            [
+                "Percy Jackson and the last olympians",
+                "Rick Riordan"
+            ],
+            [
+                "Eleanor Oliphant is completely fine",
+                "Gail Honeyman"
+            ]
+        ]
     }
 }

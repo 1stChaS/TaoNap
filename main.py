@@ -179,9 +179,9 @@ if choice_room == "Book":
 
     #  Customer info
 
-    customer_name = input("What is your name?: ")  # Chananthida Sopaphol
-    customer_nickname = input("What is your nickname?: ")  # First
-    customer_phone = input("What is your phone number?: ")  # 0981027726
+    customer_name = input("What is your name?: ")
+    customer_nickname = input("What is your nickname?: ")
+    customer_phone = input("What is your phone number?: ")
     customer_info = Bill(customer_name, customer_nickname, customer_phone, room_info, dessert_info, book_info)
     customer_info.store()
     # Store customer information to json file.

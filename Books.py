@@ -33,7 +33,6 @@ class Books:
                                 if m[0] == i['book_name']:
                                     print("Oh, sorry for the inconvenience but someone is reading this book right now.")
                                     return False
-                if self.order == i['order']:
                     book_info.append(i['book_name'])
                     book_info.append(i['author'])
                     return book_info

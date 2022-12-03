@@ -4,7 +4,7 @@ import json
 
 class Bill:
     def __init__(self, customer_name, customer_nickname, customer_phone, room_info, dessert_info, book):
-        if not customer_name.isalpha:  # name with surname ex. Chananthida Sopaphol
+        if not customer_name.isalpha:
             raise TypeError("Your name should be string.")
         if not customer_nickname.isalpha:
             raise ValueError("Your nickname should be string.")
