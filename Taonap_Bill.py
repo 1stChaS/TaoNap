@@ -16,7 +16,7 @@ class Bill:
         self.__customer_nickname = customer_nickname
         self.__customer_phone = customer_phone
         self.__room_info = room_info
-        self.dessert_info = dessert_info
+        self.__dessert_info = dessert_info
         self.__book = book
 
     @property
@@ -77,25 +77,31 @@ class Bill:
 
     def store(self):
         customer_data = {
-            self.__customer_name: {
-                "nickname": self.__customer_nickname,
-                "phone number": self.__customer_phone,
-                "Room": self.__room_info[0][1],
-                "Books": self.__book
+            self.customer_name: {
+                # JSON format.
+                "nickname": self.customer_nickname,
+                "phone number": self.customer_phone,
+                "Room": self.room_info[0][1],
+                "Books": self.book
 
             }
         }
         try:
             with open("Customers_info.json", "r") as file:
+                # Open file json.
                 data = json.load(file)
         except FileNotFoundError:
+            # If FileNotFoundError create the new file.
             with open("Customers_info.json", "w") as file:
                 json.dump(customer_data, file, indent=4)
         else:
+            # If you already have json file.
             data.update(customer_data)
             with open("Customers_info.json", "w") as file:
                 json.dump(data, file, indent=4)
+                # Update data in the file.
 
+    # Create new Bill in .txt file.
     def print_bill(self):
         total_price = []
         file_name = time.strftime(self.customer_name+"%d-%b-%Y_%H:%M:%S", time.localtime())
@@ -114,15 +120,14 @@ class Bill:
             new_bill.write("\n")
 
             for i in range(len(self.room_info)):
-                # Floor: 2, Room: P1
-                # room_info.append([floor, select_room, hours, price])
+                # room_info = ([floor, select_room, hours, price])
                 total_price.append(self.room_info[i][3])
                 new_bill.write(f"  Floor: {self.room_info[i][0]}\n")
                 new_bill.write(f"  --- Room: {self.room_info[i][1]:<50}"
                                f"{self.room_info[i][2]:^20}{self.room_info[i][3]:^20}\n")
 
             for k in range(len(self.dessert_info)):
-                # dessert_info.append([check, order, price])
+                # dessert_info = ([check, order, price])
                 total_price.append(self.dessert_info[k][2])
                 new_bill.write(f"  {self.dessert_info[k][0]:<60}"
                                f"{self.dessert_info[k][1]:^20}{self.dessert_info[k][2]:^20}\n")
@@ -150,4 +155,3 @@ class Bill:
             new_bill.write("\n")
             for i in range(101):
                 new_bill.write("=")
-
