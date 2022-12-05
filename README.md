@@ -2,7 +2,7 @@
 
 ![50e1f8624e46cb1a2a14bc89841a0fe0](https://user-images.githubusercontent.com/115055033/205586673-e620c4da-5281-42b9-9e3d-7ac8c3732837.gif)
 
-Hello to anyone and everyone. Welcome to "Tao Nap," my lovely nap cafe. 
+> <p>Hello to anyone and everyone. Welcome to "Tao Nap," my lovely nap cafe.</p>
 This cafe is a two-floor building. It has two zones.
 The first floor is the meeting zone where customers can participate and meet. The first floor is for those who like to read and eat dessert in a cafe atmosphere. 
 The second zone is the silent zone. You don't have to speak, talk, or meet anyone; all you have to do is read and sleep peacefully. 
@@ -43,3 +43,6 @@ This project has 3 csv files.
             that customers want, check if this room is already booking or not and the room's price.
 * [Taonap_Bill.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Taonap_Bill.py): contains Bill class. This file used to store customers' data to json file and print out text bills.
 * [Cancel.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Cancel.py): contains the Cancel class. This file used to cancel the customer data from [Customers_info.json](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Customers_info.json) file.
+<p>This project has 1 JSON file.</p>
+* [Customers_info.json](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Customers_info.json)
+<p>Example bill: [text file](https://github.com/1stChaS/TaoNap/blob/ab8992c077f012db49e7d6d1b86ea22c21d4f089/lady04-Dec-2022_00:08:28.txt)</p>      
