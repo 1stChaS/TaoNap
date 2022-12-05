@@ -14,7 +14,7 @@ The main program: ask for orders from customers and collected in Customers_info.
 We have 39 rooms that customers can book. 10 different kinds of tasty dessert and 20 interesting books 
 that customers can choose from. Customers can’t choose the same room and books like the others.</br>
 When customers finish ordering. The program will print out the bill.</br>
-Customers can cancel the booking order</br>. 
+Customers can cancel the booking order.</br> 
 
 # Required libraries and tools
 I use 4 modules in this project.
