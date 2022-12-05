@@ -28,10 +28,10 @@ I use 4 modules in this project.
 
 # Code structure
 This project has 3 csv files.
-* Books.csv: the data of books list and author’s name.
-* Dessert.csv: the data of desserts menu and desserts’ price.
-* Rooms.csv: the data of rooms’ name and rooms’ price.
+* [Books.csv](https://github.com/1stChaS/TaoNap/blob/7bc6318714b8598143e0d31af8196ad52741a1da/Books.csv): the data of books list and author’s name.
+* [Dessert.csv](https://github.com/1stChaS/TaoNap/blob/3e7ff15e8014863ef8edebe011f40506d36b3b2c/Dessert.csv): the data of desserts menu and desserts’ price.
+* [Rooms.csv](https://github.com/1stChaS/TaoNap/blob/3e7ff15e8014863ef8edebe011f40506d36b3b2c/Rooms.csv): the data of rooms’ name and rooms’ price.
 This project has 6 python files.
-* main.py: the main file for asking data from customers.
-* Books.py: contains the Books class. This file is used to search what is the book 
+* [main.py](https://github.com/1stChaS/TaoNap/blob/3e7ff15e8014863ef8edebe011f40506d36b3b2c/main.py): the main file for asking data from customers.
+* [Books.py](https://github.com/1stChaS/TaoNap/blob/3e7ff15e8014863ef8edebe011f40506d36b3b2c/Books.py): contains the Books class. This file is used to search what is the book 
             that customers want and check if this book is already booking or not.
