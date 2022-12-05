@@ -3,18 +3,18 @@
 ![50e1f8624e46cb1a2a14bc89841a0fe0](https://user-images.githubusercontent.com/115055033/205586673-e620c4da-5281-42b9-9e3d-7ac8c3732837.gif)
 
 > <p>Hello everyone! Welcome to "Tao Nap," my lovely nap cafe.</p>
-This cafe is a two-floor building. It has two zones.
-The first floor is the meeting zone where customers can participate and meet. The first floor is for those who like to read and eat dessert in a cafe atmosphere. 
-The second zone is the silent zone. You don't have to speak, talk, or meet anyone; all you have to do is read and sleep peacefully. 
-Tao Nap cafe also has a booking books service and also has tasty desserts served for customers.
+This cafe is a two-floor building. It has two zones.</br>
+The first floor is the meeting zone where customers can participate and chat. The first floor is for those who like to read and eat dessert in a cafe atmosphere.</br> 
+The second zone is the silent zone. You don't have to speak, talk, or meet anyone; all you have to do is read and sleep peacefully.</br>
+Tao Nap cafe also has a booking books service and also has tasty desserts served for customers.</br>
 
 # Project overview and features
-This program is booking the rooms, desserts and books in Tao Nap nap cafe.
-The main program: ask for orders from customers and collected in Customers_info.json. 
+This program is booking the rooms, desserts and books in Tao Nap nap cafe.</br>
+The main program: ask for orders from customers and collected in Customers_info.json.</br> 
 We have 39 rooms that customers can book. 10 different kinds of tasty dessert and 20 interesting books 
-that customers can choose from. Customers can’t choose the same room and books like the others. 
-When customers finish ordering. The program will print out the bill. 
-Customers can cancel the booking order and it will delete in the json file. 
+that customers can choose from. Customers can’t choose the same room and books like the others.</br>
+When customers finish ordering. The program will print out the bill.</br>
+Customers can cancel the booking order</br>. 
 
 # Required libraries and tools
 I use 4 modules in this project.
