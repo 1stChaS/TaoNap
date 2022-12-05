@@ -26,7 +26,7 @@ I use 4 modules in this project.
 # Program design  
 <p>This project has 4 classes.</p>
 
-![Blank diagram-2](https://user-images.githubusercontent.com/115055033/205623431-73d0641f-7380-49fe-a4ba-97a707776c9b.png)
+![Blank diagram-2](https://user-images.githubusercontent.com/115055033/205624214-ef7223db-7ea3-4bbe-b843-9d9c6006133d.png)
 
 + `Books` : The search method will check order(string) attribute from csv file which this order is in csv file or not. If True it will check in the json file, if this book is already booked, It will return False. If it available, it will return list.
 + `Dessert` : The search method will check menu(string) attribute from the csv file. If this dessert is in csv file, It will return True with the dessert's name. The price method will check the price of the dessert.
