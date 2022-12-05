@@ -31,7 +31,15 @@ This project has 3 csv files.
 * [Books.csv](https://github.com/1stChaS/TaoNap/blob/7bc6318714b8598143e0d31af8196ad52741a1da/Books.csv): the data of books list and author’s name.
 * [Dessert.csv](https://github.com/1stChaS/TaoNap/blob/3e7ff15e8014863ef8edebe011f40506d36b3b2c/Dessert.csv): the data of desserts menu and desserts’ price.
 * [Rooms.csv](https://github.com/1stChaS/TaoNap/blob/3e7ff15e8014863ef8edebe011f40506d36b3b2c/Rooms.csv): the data of rooms’ name and rooms’ price.
-This project has 6 python files.
+
+<p>This project has 6 python files.</p>
+
 * [main.py](https://github.com/1stChaS/TaoNap/blob/3e7ff15e8014863ef8edebe011f40506d36b3b2c/main.py): the main file for asking data from customers.
 * [Books.py](https://github.com/1stChaS/TaoNap/blob/3e7ff15e8014863ef8edebe011f40506d36b3b2c/Books.py): contains the Books class. This file is used to search what is the book 
             that customers want and check if this book is already booking or not.
+* [Dessert.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Dessert.py): contains the Dessert class. This file is used to search what is the dessert 
+            that customers want and the dessert's price.
+* [Rooms.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Rooms.py): contains the Rooms class. This file is used to search what is the room 
+            that customers want, check if this room is already booking or not and the room's price.
+* [Taonap_Bill.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Taonap_Bill.py): contains Bill class. This file used to store customers' data to json file and print out text bills.
+* [Cancel.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Cancel.py): contains the Cancel class. This file used to cancel the customer data from [Customers_info.json](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Customers_info.json) file.
