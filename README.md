@@ -57,4 +57,4 @@ This project has 3 csv files.
 * [Customers_info.json](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Customers_info.json)
 
 Example bill: 
-[Text file](https://github.com/1stChaS/TaoNap/blob/1553ee82b97bd139eb010e8b9af17ce9836a7fd2/lady04-Dec-2022_00:08:28.txt)     
+[Text file](https://github.com/1stChaS/TaoNap/blob/13429c51a8ddde19a08c9d3adb4af589149172a3/lady05-Dec-2022_17:53:29.txt)     
