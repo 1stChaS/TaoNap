@@ -43,6 +43,10 @@ This project has 3 csv files.
             that customers want, check if this room is already booking or not and the room's price.
 * [Taonap_Bill.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Taonap_Bill.py): contains Bill class. This file used to store customers' data to json file and print out text bills.
 * [Cancel.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Cancel.py): contains the Cancel class. This file used to cancel the customer data from [Customers_info.json](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Customers_info.json) file.
+
 <p>This project has 1 JSON file.</p>
+
 * [Customers_info.json](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Customers_info.json)
-<p>Example bill:</p> [text file](https://github.com/1stChaS/TaoNap/blob/1553ee82b97bd139eb010e8b9af17ce9836a7fd2/lady04-Dec-2022_00:08:28.txt)     
+
+Example bill: 
+[Text file](https://github.com/1stChaS/TaoNap/blob/1553ee82b97bd139eb010e8b9af17ce9836a7fd2/lady04-Dec-2022_00:08:28.txt)     
