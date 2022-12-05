@@ -26,7 +26,9 @@ I use 4 modules in this project.
 # Program design  
 <p>This project has 5 classes.</p>
 
-+ `Rooms` :
++ `Books` : The search method will check order(string) attribute from csv file which this order is in csv file or not. If True it will check in the json file, if this book is already booked, It will return False. If it available, it will return list.
++ `Dessert` : The search method will check menu(string) attribute from the csv file. If this dessert is in csv file, It will return True with the dessert's name. The price method will check the price of the dessert.
++ `Rooms` : The search method will check room_name(string) attribute from csv file which this room_name is in csv file or not. If True it will check in the json file, if this room is already booked, It will return False. If it available, it will return True. The price method will check the price of the room.
 
 # Code structure
 This project has 3 csv files.
