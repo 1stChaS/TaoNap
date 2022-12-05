@@ -7,21 +7,22 @@
   Menu                                                             Quantity             Price        
 -----------------------------------------------------------------------------------------------------
   Floor: 2
-  --- Room: N111                                                       1                  100         
-  Bingsu                                                               1                  150         
+  --- Room: N112                                                       4                  400         
+  Mint chocolate ice cream                                             3                   90         
+  Almond Croissant                                                     1                   50         
+  The Prison Healer                                           
+   -- by Lynette Noni                                                  1                   10         
   The strange house                                           
    -- by Uketsu                                                        1                   10         
-  The lost hero                                               
-   -- by Rick Riordan                                                  1                   10         
-  Percy Jackson and the last olympians                        
-   -- by Rick Riordan                                                  1                   10         
-  Eleanor Oliphant is completely fine                         
-   -- by Gail Honeyman                                                 1                   10         
+  Kim ji young born 1982                                      
+   -- by Nam-joo                                                       1                   10         
+  Her name is                                                 
+   -- by Nam-joo                                                       1                   10         
 -----------------------------------------------------------------------------------------------------
-  Total price: 290 Baht.
+  Total price: 580 Baht.
 
   Name: lady
-  Nickname: gigy
+  Nickname: first
   Phone number: 1234567890
 -----------------------------------------------------------------------------------------------------
 

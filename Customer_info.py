@@ -2,16 +2,17 @@ import time
 import json
 
 
-class Bill:
-    def __init__(self, customer_name, customer_nickname, customer_phone, room_info, dessert_info, book):
+class Customer_info:
+    def __init__(self, customer_name="", customer_nickname="", customer_phone="",
+                 room_info="", dessert_info="", book=""):
         if not customer_name.isalpha:
             raise TypeError("Your name should be string.")
         if not customer_nickname.isalpha:
             raise ValueError("Your nickname should be string.")
         if not customer_phone.isnumeric:
             raise ValueError("Your phone number should be numeric.")
-        if len(customer_phone) != 10:
-            raise ValueError("Your phone number should have 10 digits.")
+        # if len(customer_phone) != 10:
+        #     raise ValueError("Your phone number should have 10 digits.")
         self.__customer_name = customer_name
         self.__customer_nickname = customer_nickname
         self.__customer_phone = customer_phone
@@ -47,8 +48,8 @@ class Bill:
     def customer_phone(self, new_phone):
         if not new_phone.isnumeric():
             raise ValueError("Your phone number should be numeric.")
-        if len(new_phone) != 10:
-            raise ValueError("Your phone number should have 10 digits.")
+        # if len(new_phone) != 10:
+        #     raise ValueError("Your phone number should have 10 digits.")
         self.__customer_phone = new_phone
 
     @property
@@ -100,6 +101,46 @@ class Bill:
             with open("Customers_info.json", "w") as file:
                 json.dump(data, file, indent=4)
                 # Update data in the file.
+
+    def cancel(self, name):
+        try:
+            with open("Customers_info.json", "r") as data_file:
+                data = json.load(data_file)
+        except FileNotFoundError:
+            print(f"Don't have the data")
+        else:
+            if name in data:
+                for g in list(data):
+                    print(f"Hello! {name}")
+                    print(f"You book room: {data[name]['Room']}")
+
+                    if len(data[name]['Books']) != 0:
+                        print("You also read ")
+                        book_info = [i for i in data[name]['Books']]
+
+                        for i in range(len(book_info)):
+                            print(f"{i+1}. {book_info[i][0]} "
+                                  f"by {book_info[i][1]}")
+
+                        choose = input("Are you really want to cancel this room?(Yes/No): ")
+                        while choose != "Yes" and choose != "No":
+                            print("please choose again. 🥹")
+                            choose = input("Are you really want to cancel this room?(Yes/No): ")
+
+                        if choose == "Yes":
+                            print(f"Cancel room: {data[name]['Room']}")
+                            data.pop(name)
+                            with open("Customers_info.json", "w") as data_file:
+                                json.dump(data, data_file, indent=4)
+                                # Delete Customer's name in json file.
+
+                        if choose == "No":
+                            print("Thank you for not cancel 🙏🏼")
+                    print("THANKYOU FOR YOU SUPPORT 🫀")
+
+            else:
+                # Customer's name does not in json file.
+                print(f"No data for account number: {self.name}")
 
     # Create new Bill in .txt file.
     def print_bill(self):

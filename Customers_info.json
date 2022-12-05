@@ -1,1 +1,25 @@
-{}
+{
+    "lady": {
+        "nickname": "first",
+        "phone number": "1234567890",
+        "Room": "N112",
+        "Books": [
+            [
+                "The Prison Healer",
+                "Lynette Noni"
+            ],
+            [
+                "The strange house",
+                "Uketsu"
+            ],
+            [
+                "Kim ji young born 1982",
+                "Nam-joo"
+            ],
+            [
+                "Her name is",
+                "Nam-joo"
+            ]
+        ]
+    }
+}

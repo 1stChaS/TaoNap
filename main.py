@@ -1,8 +1,7 @@
 import csv
 from turtle import Shape, Screen, Turtle
 from PIL import Image, ImageTk
-from Cancel import Customer
-from Taonap_Bill import Bill
+from Customer_info import Customer_info
 from Rooms import Rooms
 from Dessert import Dessert
 from Books import Books
@@ -179,17 +178,15 @@ if choice_room == "Book":
     customer_name = input("What is your name?: ")
     customer_nickname = input("What is your nickname?: ")
     customer_phone = input("What is your phone number?: ")
-    customer_info = Bill(customer_name, customer_nickname, customer_phone, room_info, dessert_info, book_info)
+    customer_info = Customer_info(customer_name, customer_nickname, customer_phone, room_info, dessert_info, book_info)
     customer_info.store()
     # Store customer information to json file.
-    database = Customer(customer_name)
     customer_info.print_bill()
     # Create Bill to print to each customer.
-
 
 if choice_room == "Cancel":
     # Use customer's name to cancel booking.
     name = input("What is your name?: ")
-    database = Customer(name)
-    database.cancel()
+    database = Customer_info()
+    database.cancel(name)
     # Check customer's data from json file.
