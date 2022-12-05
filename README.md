@@ -18,13 +18,15 @@ Customers can cancel the booking order and it will delete in the json file.
 
 # Required libraries and tools
 I use 4 modules in this project.
-* csv, for open and read csv file
-* turtle, show the room image.
-* PIL, show the room image.
-* json, to collect customer data.
+* `csv` : for open and read csv file
+* `turtle` : show the room image.
+* `PIL` : show the room image.
+* `json` : to collect customer data.
 
 # Program design  
+<p>This project has 5 classes.</p>
 
++ `Rooms` :
 
 # Code structure
 This project has 3 csv files.
@@ -35,14 +37,14 @@ This project has 3 csv files.
 <p>This project has 6 python files.</p>
 
 * [main.py](https://github.com/1stChaS/TaoNap/blob/3e7ff15e8014863ef8edebe011f40506d36b3b2c/main.py): the main file for asking data from customers.
-* [Books.py](https://github.com/1stChaS/TaoNap/blob/3e7ff15e8014863ef8edebe011f40506d36b3b2c/Books.py): contains the Books class. This file is used to search what is the book 
+* [Books.py](https://github.com/1stChaS/TaoNap/blob/3e7ff15e8014863ef8edebe011f40506d36b3b2c/Books.py): contains the **Books class**. This file is used to search what is the book 
             that customers want and check if this book is already booking or not.
-* [Dessert.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Dessert.py): contains the Dessert class. This file is used to search what is the dessert 
+* [Dessert.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Dessert.py): contains the **Dessert class**. This file is used to search what is the dessert 
             that customers want and the dessert's price.
-* [Rooms.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Rooms.py): contains the Rooms class. This file is used to search what is the room 
+* [Rooms.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Rooms.py): contains the **Rooms class**. This file is used to search what is the room 
             that customers want, check if this room is already booking or not and the room's price.
-* [Taonap_Bill.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Taonap_Bill.py): contains Bill class. This file used to store customers' data to json file and print out text bills.
-* [Cancel.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Cancel.py): contains the Cancel class. This file used to cancel the customer data from [Customers_info.json](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Customers_info.json) file.
+* [Taonap_Bill.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Taonap_Bill.py): contains **Bill class**. This file used to store customers' data to json file and print out text bills.
+* [Cancel.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Cancel.py): contains the **Cancel class**. This file used to cancel the customer data from [Customers_info.json](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Customers_info.json) file.
 
 <p>This project has 1 JSON file.</p>
 
