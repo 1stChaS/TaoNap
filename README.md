@@ -45,4 +45,4 @@ This project has 3 csv files.
 * [Cancel.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Cancel.py): contains the Cancel class. This file used to cancel the customer data from [Customers_info.json](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Customers_info.json) file.
 <p>This project has 1 JSON file.</p>
 * [Customers_info.json](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Customers_info.json)
-<p>Example bill: [text file](https://github.com/1stChaS/TaoNap/blob/ab8992c077f012db49e7d6d1b86ea22c21d4f089/lady04-Dec-2022_00:08:28.txt)</p>      
+<p>Example bill:</p> [text file](https://github.com/1stChaS/TaoNap/blob/1553ee82b97bd139eb010e8b9af17ce9836a7fd2/lady04-Dec-2022_00:08:28.txt)     
