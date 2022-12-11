@@ -2,27 +2,15 @@
     "lady": {
         "nickname": "first",
         "phone number": "1234567890",
-        "Room": "S6",
+        "Room": "N108",
         "Books": [
             [
                 "UNTITLED CASE : PIECE / MAKER",
                 "Yod Banpapong and Thanyawat Ipoodom"
             ],
             [
-                "The Catcher in the Rye",
-                "J.D. Salinger"
-            ],
-            [
-                "Percy Jackson and the last olympians",
-                "Rick Riordan"
-            ],
-            [
                 "The lost hero",
                 "Rick Riordan"
-            ],
-            [
-                "The Decagon House Murders",
-                "Yukito Ayatsuji"
             ]
         ]
     },

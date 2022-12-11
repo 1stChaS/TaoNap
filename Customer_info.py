@@ -27,7 +27,7 @@ class Customer_info:
 
     @customer_name.setter
     def customer_name(self, new_name):
-        if not new_name.isalpha():
+        if not all(x.isalpha() or x.isspace() for x in new_name):
             raise TypeError("Your name should be string.")
         self.__customer_name = new_name
 
@@ -37,7 +37,7 @@ class Customer_info:
 
     @customer_nickname.setter
     def customer_nickname(self, new_nickname):
-        if not new_nickname.isalpha():
+        if not all(x.isalpha() or x.isspace() for x in new_nickname):
             raise ValueError("Your nickname should be string.")
         self.__customer_nickname = new_nickname
 
@@ -47,10 +47,8 @@ class Customer_info:
 
     @customer_phone.setter
     def customer_phone(self, new_phone):
-        if not new_phone.isnumeric():
+        if not all(x.isnumeric() or x.isspace() for x in new_phone):
             raise ValueError("Your phone number should be numeric.")
-        if len(new_phone) != 10:
-            raise ValueError("Your phone number should have 10 digits.")
         self.__customer_phone = new_phone
 
     @property

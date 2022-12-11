@@ -166,9 +166,6 @@ if choice_room == "Book":
                             same_book.append(False)
                         else:
                             same_book.append(True)
-                        # print(same_book)
-                        # print(book_info)
-                        # print(check_book)
                     if any(same_book):
                         print("You have already chosen this book. 🐨")
                         print("Please try again.")
@@ -193,7 +190,7 @@ if choice_room == "Book":
 
     #  Customer info
 
-    customer_name = input("What is your name?: ")
+    customer_name = input("What is your name-surname?: ")
     customer_nickname = input("What is your nickname?: ")
     customer_phone = input("What is your phone number?: ")
     customer_info = Customer_info(customer_name, customer_nickname, customer_phone, room_info, dessert_info, book_info)
@@ -204,7 +201,7 @@ if choice_room == "Book":
 
 if choice_room == "Cancel":
     # Use customer's name to cancel booking.
-    name = input("What is your name? : ")
+    name = input("What is your name-surname? : ")
     database = Customer_info()
     database.cancel(name)
     # Check customer's data from json file.
