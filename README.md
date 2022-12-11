@@ -9,11 +9,10 @@ This cafe is a two-floor building. It has two zones.</br>
 Tao Nap cafe also has a booking books service and also has tasty desserts served for customers.</br>
 
 # Project overview and features
-This program is booking the rooms, desserts and books in Tao Nap nap cafe.</br>
-The main program: ask for orders from customers and collected in Customers_info.json.</br> 
-We have 39 rooms that customers can book. 10 different kinds of tasty dessert and 20 interesting books 
-that customers can choose from. Customers can’t choose the same room and books like the others.</br>
-When customers finish ordering. The program will print out the bill.</br>
+This program is booking rooms, desserts, and books in Tao Nap nap cafe.
+The main program: ask for orders from customers and is collected in Customers_info.json.
+We have 39 rooms that customers can book, 10 different kinds of tasty desserts and 20 interesting books that customers can choose. Customers can’t book the same room and books as the others.
+When customers finish ordering. The program will print out the bill.
 Customers can cancel the booking order.</br> 
 
 # Required libraries and tools
