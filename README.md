@@ -1,7 +1,5 @@
 # Nap Cafe booking: Tao Nap
 
-![50e1f8624e46cb1a2a14bc89841a0fe0](https://user-images.githubusercontent.com/115055033/205586673-e620c4da-5281-42b9-9e3d-7ac8c3732837.gif)
-
 > <p>Hello everyone! Welcome to "Tao Nap," my lovely nap cafe.</p>
 This cafe is a two-floor building. It has two zones.</br>
 *The first floor* is the meeting zone where customers can participate and chat. The first floor is for those who like to read and eat dessert in a cafe atmosphere.</br> 
@@ -24,8 +22,6 @@ I use 4 modules in this project.
 
 # Program design  
 <p>This project has 4 classes.</p>
-
-![Blank diagram-3](https://user-images.githubusercontent.com/115055033/205624578-a0fdbce9-d9e8-4d8e-a9df-b0277fafe8c2.png)
 
 + `Books` : The search method will check order(string) attribute from csv file which this order is in csv file or not. If True it will check in the json file, if this book is already booked, It will return False. If it available, it will return list.
 + `Dessert` : The search method will check menu(string) attribute from the csv file. If this dessert is in csv file, It will return True with the dessert's name. The price method will check the price of the dessert.
