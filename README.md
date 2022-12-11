@@ -47,7 +47,7 @@ This project has 3 csv files.
             that customers want and the dessert's price.
 * [Rooms.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Rooms.py): contains the **Rooms class**. This file is used to search what is the room 
             that customers want, check if this room is already booking or not and the room's price.
-* [Customer_info.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Taonap_Bill.py): contains **Bill class**. This file used to store customers' data to json file, cancel and print out text bills.
+* [Customer_info.py](https://github.com/1stChaS/TaoNap/blob/9283f69a88d5c3eebffe449eb5e96d10ac8dfa31/Taonap_Bill.py): contains **Customer_info class**. This file used to store customers' data to json file, cancel and print out text bills.
 
 <p>This project has 1 JSON file.</p>
 
