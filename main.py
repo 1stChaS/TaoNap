@@ -159,8 +159,26 @@ if choice_room == "Book":
                 check_book = book.search()
 
             if check_book:
-                print(f"Ok, You want to read '{check_book[0]}' by '{check_book[1]}'.")
-                book_info.append([check_book[0], check_book[1]])
+                same_book = []
+                if len(book_info) != 0:
+                    for i in range(len(book_info)):
+                        if check_book[0] != book_info[i][0]:
+                            same_book.append(False)
+                        else:
+                            same_book.append(True)
+                        # print(same_book)
+                        # print(book_info)
+                        # print(check_book)
+                    if any(same_book):
+                        print("You have already chosen this book. 🐨")
+                        print("Please try again.")
+                    else:
+                        print(f"Ok, You want to read '{check_book[0]}' by '{check_book[1]}'.")
+                        book_info.append([check_book[0], check_book[1]])
+
+                if len(book_info) == 0:
+                    print(f"Ok, You want to read '{check_book[0]}' by '{check_book[1]}'.")
+                    book_info.append([check_book[0], check_book[1]])
 
             print("")
             choice_book = input("Do you want more interesting books?(Yes/No): ")
@@ -186,7 +204,7 @@ if choice_room == "Book":
 
 if choice_room == "Cancel":
     # Use customer's name to cancel booking.
-    name = input("What is your name?: ")
+    name = input("What is your name? : ")
     database = Customer_info()
     database.cancel(name)
     # Check customer's data from json file.
