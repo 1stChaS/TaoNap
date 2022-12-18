@@ -30,9 +30,10 @@ class Rooms:
             csv_reader = csv.DictReader(csv_file)
 
             for i in csv_reader:
+                check = False
                 # Search room's name lists from Rooms.csv.
                 if self.floor == "1":
-                    if self.rooms_name == i['name_room']:
+                    if self.rooms_name == i['name_room'] and self.floor == "1":
                         try:
                             with open("Customers_info.json", "r") as data_file:
                                 data = json.load(data_file)
@@ -48,7 +49,7 @@ class Rooms:
                         check = True
 
                 if self.floor == "2":
-                    if self.rooms_name == i['name_room']:
+                    if self.rooms_name == i['name_room'] and self.floor == "2":
                         try:
                             with open("Customers_info.json", "r") as data_file:
                                 data = json.load(data_file)
